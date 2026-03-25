@@ -431,7 +431,9 @@ export default function Projects() {
             About
           </li>
           <li className="nav-link active">Projects</li>
-          <li className="nav-link">Contact</li>
+          <li className="nav-link" onClick={() => navigate("/contact")}>
+            Contact
+          </li>
         </ul>
       </nav>
 

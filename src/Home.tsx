@@ -3,19 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
-  const [projectsOpen, setProjectsOpen] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(t);
   }, []);
-
-  const projectCategories = [
-    { label: "Websites", path: "/projects/websites", icon: "⌗" },
-    { label: "Games", path: "/projects/games", icon: "◈" },
-    { label: "Other", path: "/projects/other", icon: "◎" },
-  ];
 
   return (
     <>
@@ -141,55 +134,6 @@ export default function Home() {
           transition: width 0.3s ease;
         }
         .nav-link:hover::after { width: 100%; }
-
-        /* PROJECTS DROPDOWN */
-        .projects-nav {
-          position: relative;
-        }
-
-        .projects-dropdown {
-          position: absolute;
-          top: calc(100% + 16px);
-          right: 0;
-          background: var(--surface);
-          border: 1px solid var(--border);
-          border-radius: 4px;
-          overflow: hidden;
-          min-width: 180px;
-          opacity: 0;
-          transform: translateY(-8px);
-          pointer-events: none;
-          transition: opacity 0.2s, transform 0.2s;
-        }
-        .projects-dropdown.open {
-          opacity: 1;
-          transform: translateY(0);
-          pointer-events: all;
-        }
-
-        .dropdown-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 14px 20px;
-          font-size: 0.8rem;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: var(--muted);
-          cursor: pointer;
-          transition: background 0.15s, color 0.15s;
-          border-bottom: 1px solid var(--border);
-        }
-        .dropdown-item:last-child { border-bottom: none; }
-        .dropdown-item:hover {
-          background: rgba(200,240,117,0.06);
-          color: var(--accent);
-        }
-
-        .dropdown-icon {
-          font-size: 1rem;
-          color: var(--accent2);
-        }
 
         /* HERO */
         .hero {
@@ -466,24 +410,10 @@ export default function Home() {
             onClick={() => navigate("/projects")}
           >
             Projects
-            <div className={`projects-dropdown ${projectsOpen ? "open" : ""}`}>
-              {projectCategories.map((c) => (
-                <div
-                  key={c.path}
-                  className="dropdown-item"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate(c.path);
-                    setProjectsOpen(false);
-                  }}
-                >
-                  <span className="dropdown-icon">{c.icon}</span>
-                  {c.label}
-                </div>
-              ))}
-            </div>
           </li>
-          <li className="nav-link">Contact</li>
+          <li className="nav-link" onClick={() => navigate("/contact")}>
+            Contact
+          </li>
         </ul>
       </nav>
 
@@ -515,7 +445,7 @@ export default function Home() {
           <div className={`hero-cta ${visible ? "show" : ""}`}>
             <button
               className="btn-primary"
-              onClick={() => setProjectsOpen(true)}
+              onClick={() => navigate("/projects")}
             >
               View Projects
             </button>
