@@ -463,9 +463,9 @@ export default function Home() {
           <li className="nav-link">About</li>
           <li
             className={`nav-link projects-nav`}
-            onClick={() => setProjectsOpen((o) => !o)}
+            onClick={() => navigate("/projects")}
           >
-            Projects ↓
+            Projects
             <div className={`projects-dropdown ${projectsOpen ? "open" : ""}`}>
               {projectCategories.map((c) => (
                 <div
@@ -546,8 +546,8 @@ export default function Home() {
               <div className="stat-label">Lines of code written</div>
             </div>
             <div className="stat-cell">
-              <div className="stat-num">3+</div>
-              <div className="stat-label">Project categories</div>
+              <div className="stat-num">#</div>
+              <div className="stat-label">Science and Tech Enthusiast</div>
             </div>
             <div className="stat-cell">
               <div className="stat-num">01</div>
