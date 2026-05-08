@@ -160,7 +160,7 @@ const CATEGORIES: FilterCategory[] = [
 export default function Projects() {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<FilterKey>("all");
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  // const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -476,8 +476,8 @@ export default function Projects() {
               style={{
                 transitionDelay: visible ? `${0.45 + i * 0.06}s` : "0s",
               }}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
+              // onMouseEnter={() => setHoveredId(project.id)}
+              // onMouseLeave={() => setHoveredId(null)}
             >
               <div className="card-top">
                 <div className="card-icon">{project.icon}</div>
