@@ -404,7 +404,9 @@ export default function Home() {
       <nav>
         <span className="nav-logo">Portfolio</span>
         <ul className="nav-links">
-          <li className="nav-link">About</li>
+          <li className="nav-link" onClick={() => navigate("/portfolio")}>
+            About
+          </li>
           <li
             className={`nav-link projects-nav`}
             onClick={() => navigate("/projects")}

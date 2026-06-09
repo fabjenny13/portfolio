@@ -403,11 +403,11 @@ export default function Contact() {
       <div className="glow-orb-2" />
 
       <nav>
-        <span className="nav-logo" onClick={() => navigate("/")}>
+        <span className="nav-logo" onClick={() => navigate("/portfolio")}>
           Portfolio
         </span>
         <ul className="nav-links">
-          <li className="nav-link" onClick={() => navigate("/")}>
+          <li className="nav-link" onClick={() => navigate("/portfolio")}>
             About
           </li>
           <li className="nav-link" onClick={() => navigate("/projects")}>
